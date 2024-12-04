@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Temperaturas de Motores</title>
+    <!-- Inclusión de la biblioteca SheetJS desde un archivo local -->
+    <script src="./js/xlsx.full.min.js"></script>
+    <!-- Enlace al archivo de estilos CSS -->
+    <link rel="stylesheet" href="./estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+    <h1>Registro de Temperaturas de Motores</h1>
+    <div id="reloj"></div>
+    <form id="formularioTemperaturas">
+        <!-- Motor 1 -->
+        <fieldset>
+            <legend>Motor 1</legend>
+            <div class="campo">
+                <label for="motor1_parte1">Parte A:</label>
+                <input type="number" id="motor1_parte1" name="motor1_parte1" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor1_parte2">Parte B:</label>
+                <input type="number" id="motor1_parte2" name="motor1_parte2" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor1_parte3">Parte C:</label>
+                <input type="number" id="motor1_parte3" name="motor1_parte3" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor1_parte4">Parte D:</label>
+                <input type="number" id="motor1_parte4" name="motor1_parte4" placeholder="Opcional">
+            </div>
+        </fieldset>
+        <!-- Motor 2 -->
+        <fieldset>
+            <legend>Motor 2</legend>
+            <div class="campo">
+                <label for="motor2_parte1">Parte A:</label>
+                <input type="number" id="motor2_parte1" name="motor2_parte1" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor2_parte2">Parte B:</label>
+                <input type="number" id="motor2_parte2" name="motor2_parte2" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor2_parte3">Parte C:</label>
+                <input type="number" id="motor2_parte3" name="motor2_parte3" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor2_parte4">Parte D:</label>
+                <input type="number" id="motor2_parte4" name="motor2_parte4" placeholder="Opcional">
+            </div>
+        </fieldset>
+        <!-- Motor 3 -->
+        <fieldset>
+            <legend>Motor 3</legend>
+            <div class="campo">
+                <label for="motor3_parte1">Parte A:</label>
+                <input type="number" id="motor3_parte1" name="motor3_parte1" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor3_parte2">Parte B:</label>
+                <input type="number" id="motor3_parte2" name="motor3_parte2" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor3_parte3">Parte C:</label>
+                <input type="number" id="motor3_parte3" name="motor3_parte3" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor3_parte4">Parte D:</label>
+                <input type="number" id="motor3_parte4" name="motor3_parte4" placeholder="Opcional">
+            </div>
+        </fieldset>
+        <!-- Motor 4 -->
+        <fieldset>
+            <legend>Motor 4</legend>
+            <div class="campo">
+                <label for="motor4_parte1">Parte A:</label>
+                <input type="number" id="motor4_parte1" name="motor4_parte1" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor4_parte2">Parte B:</label>
+                <input type="number" id="motor4_parte2" name="motor4_parte2" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor4_parte3">Parte C:</label>
+                <input type="number" id="motor4_parte3" name="motor4_parte3" placeholder="Opcional">
+            </div>
+            <div class="campo">
+                <label for="motor4_parte4">Parte D:</label>
+                <input type="number" id="motor4_parte4" name="motor4_parte4" placeholder="Opcional">
+            </div>
+        </fieldset>
+    </form>
+    <button id="descargarExcel">Descargar Excel</button>
+
+    <script src="./scripts.js"></script>
+</body>
+</html>

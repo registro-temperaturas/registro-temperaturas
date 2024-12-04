@@ -1,0 +1,102 @@
+/* Modo Nocturno */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 0;
+    background-color: #121212;
+    color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+#reloj {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #BBBBBB;
+    background-color: #1E1E1E;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    color: #FFFFFF;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.campo input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #2A2A2A;
+    color: #FFFFFF;
+    border: 1px solid #555555;
+    border-radius: 3px;
+}
+
+.campo input[type="number"]::placeholder {
+    color: #BBBBBB;
+}
+
+button {
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
+/* Estilos Responsive */
+@media (min-width: 600px) {
+    .campo {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .campo label {
+        width: 150px;
+        margin-bottom: 0;
+    }
+
+    .campo input[type="number"] {
+        flex: 1;
+    }
+}
