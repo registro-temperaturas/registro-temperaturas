@@ -15,6 +15,7 @@ function actualizarReloj() {
 setInterval(actualizarReloj, 1000);
 actualizarReloj();
 
+// Función para descargar el archivo Excel
 document.getElementById('descargarExcel').addEventListener('click', function() {
     const ahora = new Date();
     const dia = String(ahora.getDate()).padStart(2, '0');
@@ -77,15 +78,11 @@ document.getElementById('descargarExcel').addEventListener('click', function() {
     const ws = XLSX.utils.aoa_to_sheet(ws_data);
     XLSX.utils.book_append_sheet(wb, ws, fechaKey);
 
-    // Generar el archivo Excel como un Blob
-    const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-    const blob = new Blob([wbout], { type: 'application/octet-stream' });
-
-    // Usar FileSaver.js para descargar el archivo
-    saveAs(blob, `Registro_Temperaturas_${fechaKey}.xlsx`);
+    // Generar el archivo Excel y desencadenar la descarga
+    XLSX.writeFile(wb, `Registro_Temperaturas_${fechaKey}.xlsx`);
 
     // Opcional: Limpiar el formulario después de descargar
-    //document.getElementById('formularioTemperaturas').reset();
+    document.getElementById('formularioTemperaturas').reset();
 });
 
 // Registrar el Service Worker
