@@ -1,16 +1,3 @@
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('./service-worker.js')
-            .then(function(registration) {
-                console.log('Service Worker registrado con éxito:', registration.scope);
-            })
-            .catch(function(error) {
-                console.log('Error al registrar el Service Worker:', error);
-            });
-    });
-}
-
-
 // Función para actualizar el reloj
 function actualizarReloj() {
     const ahora = new Date();
@@ -44,9 +31,13 @@ document.getElementById('descargarExcel').addEventListener('click', function() {
     const wb = XLSX.utils.book_new();
     const ws_data = [];
 
+    // Agregar fila de encabezados según el formato deseado
+    ws_data.push(['', 'Hora', 'Parte A', 'Parte B', 'Parte C', 'Parte D']);
+
     for (let i = 1; i <= 4; i++) {
         const motorKey = `Motor ${i}`;
         const registro = {
+            Motor: motorKey,
             Hora: horaRegistro,
             'Parte A': '',
             'Parte B': '',
@@ -68,20 +59,18 @@ document.getElementById('descargarExcel').addEventListener('click', function() {
         const tieneTemperatura = partesTemperatura.some(parte => registro[parte] !== '');
 
         if (tieneTemperatura) {
-            ws_data.push([motorKey]); // Encabezado del motor
-            ws_data.push(['Hora', 'Parte A', 'Parte B', 'Parte C', 'Parte D']);
             ws_data.push([
-                registro.Hora || '',
+                registro.Motor,
+                registro.Hora,
                 registro['Parte A'] || '',
                 registro['Parte B'] || '',
                 registro['Parte C'] || '',
                 registro['Parte D'] || ''
             ]);
-            ws_data.push([]); // Línea vacía para separación
         }
     }
 
-    if (ws_data.length === 0) {
+    if (ws_data.length === 1) {
         alert('No se han ingresado temperaturas.');
         return;
     }
@@ -95,3 +84,16 @@ document.getElementById('descargarExcel').addEventListener('click', function() {
     // Opcional: Limpiar el formulario después de descargar
     document.getElementById('formularioTemperaturas').reset();
 });
+
+// Registrar el Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registrado con éxito:', registration.scope);
+            })
+            .catch(function(error) {
+                console.log('Error al registrar el Service Worker:', error);
+            });
+    });
+}
